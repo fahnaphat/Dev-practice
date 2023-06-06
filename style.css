@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;                  /*https://codingonblog.com/what-is-flexbox-codingonblog/*/
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    background: url('img/background.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    /* background: red; */
+    display: flex;                      /*element order in the same row*/
+    justify-content: space-between;     /*split spaces by line*/
+    align-items: center;                /*Center an element*/
+    z-index: 99;                        /*https://getcodecamp.com/2020/07/18/css-z-index/*/
+}
+
+.logo {
+    font-size: 2em;
+    color: #fff;
+    user-select: none;
+}
+
+.navigation a {
+    position: relative;
+    font-size: 1.1em;
+    color: #fff;
+    text-decoration: none;              /*ตั้งค่าให้ข้อความปราศจากการตกแต่ง เช่น ขีดเส้นใต้*/
+    font-weight: 500;                   
+    margin-left: 40px;                  /*ระยะห่างระหว่างแต่ละข้อความ*/
+}
+
+.navigation a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    left: 0;
+    bottom: -6px;
+    transform: scaleX(0);               /*missing bottom line*/
+    transition: transform .5s;          /*the Line has movement when hovering*/
+    transform-origin: right;            /*the line move right to left when cancel mouse point*/
+}
+
+.navigation a:hover::after {
+    transform-origin: left;             /*the line move left to right when start mouse point*/
+    transform: scaleX(1);               /*mouse pointing the line is up*/
+}
+
+.navigation .btnLogin-popup {
+    width: 130px;
+    height: 50px;
+    background: transparent;            /*สีพื้นหลังคุ่นๆ*/
+    border: 2px solid #fff;           /*outter border*/
+    outline: none;                      /*inner border*/
+    border-radius: 6px;                 /*กรอบโค้ง*/
+    cursor: pointer;                    /*กำหนดให้เวลาชี้ขึ้นลูกศร*/
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: .5s;                    /*this transition when hover*/
+}
+
+.navigation .btnLogin-popup:hover {
+    background: #fff;                  
+    color: #162938;                    /*color of text*/
+}
+
